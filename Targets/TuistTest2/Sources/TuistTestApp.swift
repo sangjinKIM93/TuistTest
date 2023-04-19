@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import OnboardingUI
 
 @main
 struct TuistTestApp: App {
     var body: some Scene {
         WindowGroup {
-            Text("Appdelegate 잘가라")
+            WelcomeScreen()
         }
     }
 }

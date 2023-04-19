@@ -6,10 +6,16 @@
 //
 
 import SwiftUI
+import UIComponents
 
 public struct WelcomeScreen: View {
     
     @State private var triggerNavigation: Bool = false
+    @StateObject private var screenModel: WelcomScreenModel
+    
+    public init(screenModel: WelcomScreenModel = WelcomScreenModel()) {
+        _screenModel = StateObject(wrappedValue: screenModel)
+    }
     
     public var body: some View {
         VStack {
@@ -23,6 +29,8 @@ public struct WelcomeScreen: View {
                 
             Text("아직 익숙하지 않을 뿐이다. 하면 할 수 있다.")
                 .padding()
+            
+            LottieView(filepath: screenModel.animationFilePath, loopMode: .loop)
             
             Spacer()
             
