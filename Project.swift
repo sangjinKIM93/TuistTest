@@ -11,7 +11,8 @@ private let appName: String = "TuistTest2"
 
 let project = Project(name: appName,
                       packages: [
-                        .package(path: "\(swiftPackagePath)/Onboarding")
+                        .package(path: "\(swiftPackagePath)/Onboarding"),
+                        .package(path: "\(swiftPackagePath)/UIComponents"),
                       ],
                       settings: Settings.settings(configurations: makeConfigurations()),
                       targets: [
@@ -25,7 +26,8 @@ let project = Project(name: appName,
                             sources: ["\(basePath)/Sources/**"],
                             resources: ["\(basePath)/Resources/**"],
                             dependencies: [
-                                .package(product: "Onboarding")
+                                .package(product: "Onboarding"),
+                                .package(product: "UIComponents"),
                             ],
                             settings: baseSettings()
                         )
