@@ -18,28 +18,30 @@ public struct WelcomeScreen: View {
     }
     
     public var body: some View {
-        VStack {
-            Text("Tuist 테스트 해보자")
-                .fontWeight(.medium)
-                .font(.largeTitle)
-                .padding(.top)
-            
-            Text("Tuist 정복하기.Tuist 정복하기.Tuist 정복하기.Tuist 정복하기.Tuist 정복하기.Tuist 정복하기.Tuist 정복하기.Tuist 정복하기.")
-                .padding()
+        NavigationStack {
+            VStack {
+                Text("Tuist 테스트 해보자")
+                    .fontWeight(.medium)
+                    .font(.largeTitle)
+                    .padding(.top)
                 
-            Text("아직 익숙하지 않을 뿐이다. 하면 할 수 있다.")
-                .padding()
-            
-            LottieView(filepath: screenModel.animationFilePath, loopMode: .loop)
-            
-            Spacer()
-            
-            Button("다음") {
-                triggerNavigation.toggle()
+                Text("Tuist 정복하기.Tuist 정복하기.Tuist 정복하기.Tuist 정복하기.Tuist 정복하기.Tuist 정복하기.Tuist 정복하기.Tuist 정복하기.")
+                    .padding()
+                    
+                Text("아직 익숙하지 않을 뿐이다. 하면 할 수 있다.")
+                    .padding()
+                
+                LottieView(filepath: screenModel.animationFilePath, loopMode: .loop)
+                
+                Spacer()
+                
+                CTAButton(label: "다음") {
+                    triggerNavigation.toggle()
+                }
             }
-        }
-        .navigationDestination(isPresented: $triggerNavigation) {
-            Text("다음 화면")
+            .navigationDestination(isPresented: $triggerNavigation) {
+                ReminderSetUpScreen()
+            }
         }
     }
     
